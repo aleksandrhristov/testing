@@ -1,8 +1,11 @@
 *.class
+<<<<<<< HEAD
 *.iml
 .idea/
 out/
 
+=======
+>>>>>>> 12f43af35dda77ef19d53c0858abacb6204cd7bf
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
