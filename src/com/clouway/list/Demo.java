@@ -4,8 +4,8 @@ package com.clouway.list;
  * Created by clouway on 03.05.16.
  */
 public class Demo {
-    public static void main(String[] args)  {
-        List ls = new List(3);
+    public static void main(String[] args) {
+        ArrayOfObjects ls = new ArrayOfObjects(3);
         try {
             ls.add(123);
             ls.add(233);
@@ -19,12 +19,6 @@ public class Demo {
                 e1.printStackTrace();
             }
         }
-
         System.out.println(ls.printAllElements());
-
-
-
-
-
     }
 }
