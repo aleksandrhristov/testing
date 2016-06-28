@@ -7,10 +7,12 @@ package com.clouway.list;
 public class ArrayOfObjects {
     private Object[] array;
     private int index = 0;
+
     public ArrayOfObjects(int size) {
 
         this.array = new Object[size];
     }
+
     /**
      * adding object to an array;
      *
@@ -18,13 +20,16 @@ public class ArrayOfObjects {
      * @throws Exception
      */
     public void add(Object object) throws ArrayIsFullException {
-        if (index < array.length) {
-            array[index] = object;
-            index++;
-        } else {
+        if (index >= array.length) {
             throw new ArrayIsFullException();
         }
+
+        array[index] = object;
+        index++;
+
+
     }
+
     /**
      * removing object from an array;
      *
@@ -39,11 +44,13 @@ public class ArrayOfObjects {
         }
     }
 
-    public String printAllElements() {
-        String str = "";
-        for (int i = 0; i < index; i++) {
-            str += (array[i] + " ");
+    public void printAllElements() {
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
         }
-        return str;
+    }
+
+    public int size() {
+        return index;
     }
 }

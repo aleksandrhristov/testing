@@ -6,11 +6,12 @@ package com.clouway.list;
 public class Demo {
     public static void main(String[] args) {
         ArrayOfObjects ls = new ArrayOfObjects(3);
+        Object arr[] = {1,2,3,4,5,6};
         try {
             ls.add(123);
             ls.add(233);
             ls.add(111);
-            System.out.println(ls.printAllElements());
+
             ls.add(166);
         } catch (ArrayIsFullException e) {
             try {
@@ -19,6 +20,6 @@ public class Demo {
                 e1.printStackTrace();
             }
         }
-        System.out.println(ls.printAllElements());
+
     }
 }
