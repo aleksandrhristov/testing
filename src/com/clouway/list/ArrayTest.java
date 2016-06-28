@@ -4,7 +4,6 @@ package com.clouway.list;
  * Created by clouway on 23.06.16.
  */
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -23,7 +22,6 @@ public class ArrayTest {
         arrayOfObjects.remove();
     }
 
-
     @Test(expected = ArrayIsFullException.class)
     public void addElementToFullArray() throws ArrayIsFullException {
         ArrayOfObjects arrayOfObjects = new ArrayOfObjects(0);
@@ -40,21 +38,33 @@ public class ArrayTest {
 
 
     @Test
-    public void printArray() throws ArrayIsFullException {
+    public void printEmptyArray() throws ArrayIsFullException {
         ArrayOfObjects testTool = new ArrayOfObjects(0);
         PrintStream originStream = System.out;
         try {
-
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             System.setOut(new PrintStream(outputStream));
             testTool.printAllElements();
-            assertEquals( "", outputStream.toString());
-        }
-        finally {
+            assertEquals("", outputStream.toString());
+        } finally {
             System.setOut(originStream);
         }
+    }
 
-
-
+    @Test
+    public void printArrayWithElements() throws Exception {
+        ArrayOfObjects arrayofobjects = new ArrayOfObjects(3);
+        arrayofobjects.add(1);
+        arrayofobjects.add(2);
+        arrayofobjects.add(3);
+        PrintStream originStream = System.out;
+        try {
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            System.setOut(new PrintStream(outputStream));
+            arrayofobjects.printAllElements();
+            assertEquals( "1\n2\n3\n", outputStream.toString());
+        } finally {
+            System.setOut(originStream);
+        }
     }
 }
